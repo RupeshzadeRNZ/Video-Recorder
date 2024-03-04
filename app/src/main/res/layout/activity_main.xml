@@ -5,18 +5,19 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    android:layout_marginTop="1dp"
     tools:context=".MainActivity">
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="480dp">
+        android:layout_gravity="center"
+
+        android:layout_height="640dp">
 
         <VideoView
             android:id="@+id/videoView"
-            android:layout_width="410dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
     </FrameLayout>
 
     <Button
@@ -25,5 +26,5 @@
         android:layout_height="wrap_content"
         android:onClick="StartVideo"
         android:text="@string/start_recording"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="5dp"/>
 </LinearLayout>
