@@ -26,7 +26,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // find the view id
         videoView = findViewById(R.id.videoView)
         val startButton = findViewById<Button>(R.id.startButton)
 
@@ -35,7 +34,6 @@ class MainActivity : AppCompatActivity() {
         mediaController.setAnchorView(videoView)
         videoView.setMediaController(mediaController)
 
-        // button click
         startButton.setOnClickListener {
             checkCameraPermission()
         }
