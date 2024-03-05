@@ -1,6 +1,7 @@
 package com.example.vidiorecoder
 
 import android.Manifest
+import android.app.ProgressDialog
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -113,9 +114,14 @@ class MainActivity : AppCompatActivity() {
     private inner class CompressVideo :
         AsyncTask<String, String, String>() {
 
+        private lateinit var progressDialog: ProgressDialog
+
         override fun onPreExecute() {
             super.onPreExecute()
-            // You can show progress dialog here if needed
+            progressDialog = ProgressDialog(this@MainActivity)
+            progressDialog.setMessage("Compressing video...")
+            progressDialog.setCancelable(false)
+            progressDialog.show()
         }
 
         override fun doInBackground(vararg strings: String): String {
@@ -136,6 +142,7 @@ class MainActivity : AppCompatActivity() {
 
         override fun onPostExecute(s: String) {
             super.onPostExecute(s)
+            progressDialog.dismiss()
 
             // Display a toast message indicating the result of compression
             if (s.isNotEmpty()) {
